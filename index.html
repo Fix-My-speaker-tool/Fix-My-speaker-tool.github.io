@@ -878,7 +878,6 @@
             <a onclick="showModal('privacyModal')">Privacy Policy</a>
             <a onclick="showModal('termsModal')">Terms of Service</a>
             <a onclick="showModal('contactModal')">Contact Us</a>
-            <a href="https://github.com/Fix-My-speaker-tool" target="_blank" rel="noopener">GitHub Project</a>
         </div>
         <p>&copy; 2026 Fix My Speaker Tool (fix-my-speaker-tool.github.io). All rights reserved.</p>
         <p style="margin-top: 6px; font-size: 0.8rem; color: #64748b;">Disclaimer: This free acoustic web utility is independent and not affiliated with Apple Inc., Samsung Electronics, or Google LLC.</p>
@@ -926,15 +925,26 @@
         </div>
     </div>
 
-    <!-- MODAL: Contact Us -->
+  <!-- MODAL: Contact Us -->
     <div class="modal-screen" id="contactModal" onclick="closeOnBackdrop(event, 'contactModal')">
         <div class="modal-content">
             <button class="modal-close-btn" onclick="hideModal('contactModal')">&times;</button>
             <h2>Contact Us</h2>
-            <p>Have feedback, questions, or bug reports regarding our acoustic frequencies?</p>
-            <p>You can connect directly with our open-source maintainers through our official GitHub repository profile:</p>
-            <p><a href="https://github.com/Fix-My-speaker-tool" target="_blank" rel="noopener" style="color: var(--primary); font-weight: 600;">Visit Fix-My-speaker-tool on GitHub &rarr;</a></p>
-            <p style="margin-top: 1rem;">We welcome community feedback and suggestions for acoustic frequency improvements!</p>
+            <p>Have questions, feedback, partnership inquiries, or technical bug reports regarding our acoustic frequencies? We'd love to hear from you!</p>
+            
+            <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid var(--card-border); border-radius: 14px; padding: 1.25rem; margin: 1.25rem 0;">
+                <p style="margin-bottom: 0.35rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-body);">Official Support Email:</p>
+                <a href="mailto:ahmedali2026@atomicmail.io" style="font-size: 1.15rem; color: var(--primary); font-weight: 700; text-decoration: none; word-break: break-all; display: inline-flex; align-items: center; gap: 8px;">
+                    ✉️ ahmedali2026@atomicmail.io
+                </a>
+            </div>
+
+            <p style="font-size: 0.92rem; color: var(--text-body);">We typically review and respond to all inquiries within <strong>24 to 48 business hours</strong>.</p>
+            
+            <p style="margin-top: 0.8rem; font-size: 0.9rem; color: var(--text-body);">
+                For technical updates, issues, or acoustic suggestions, you can also connect via our 
+                <a href="https://github.com/Fix-My-speaker-tool" target="_blank" rel="noopener" style="color: var(--primary); font-weight: 600; text-decoration: underline;">GitHub Repository</a>.
+            </p>
         </div>
     </div>
 
