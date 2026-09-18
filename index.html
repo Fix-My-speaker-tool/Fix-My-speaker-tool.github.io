@@ -107,7 +107,8 @@
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "No. The audio frequency generated operates within the exact decibel and amplitude parameters specified by smartphone acoustic engineers."
-              },
+              }
+            },
             {
               "@type": "Question",
               "name": "What should I do if my phone fell into salt water or soda?",
@@ -127,17 +128,15 @@
             --bg-base: #060913;
             --bg-card: rgba(13, 19, 36, 0.85);
             --bg-glass: rgba(18, 28, 54, 0.6);
-            --border-card: rgba(56, 189, 248, 0.15);
+            --border-card: rgba(56, 189, 248, 0.18);
             --border-glow: rgba(56, 189, 248, 0.4);
             --neon-blue: #00e5ff;
             --primary: #38bdf8;
-            --primary-hover: #0ea5e9;
             --neon-emerald: #10b981;
             --neon-purple: #8b5cf6;
-            --neon-amber: #f59e0b;
             --text-main: #f8fafc;
-            --text-sub: #94a3b8;
-            --text-dim: #64748b;
+            --text-sub: #cbd5e1; /* Increased contrast for WCAG AA */
+            --text-dim: #94a3b8; /* Increased contrast for WCAG AA */
             --radius-lg: 24px;
             --radius-md: 16px;
         }
@@ -162,7 +161,7 @@
 
         /* Top Header */
         header {
-            background: rgba(6, 9, 19, 0.85);
+            background: rgba(6, 9, 19, 0.9);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-card);
@@ -198,17 +197,25 @@
             box-shadow: 0 0 15px rgba(0, 229, 255, 0.35);
         }
 
-        nav a {
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        nav a, .nav-btn-link {
             color: var(--text-sub);
             text-decoration: none;
-            margin-left: 1.6rem;
+            background: none;
+            border: none;
             font-size: 0.94rem;
             font-weight: 500;
             transition: all 0.2s ease;
             cursor: pointer;
+            padding: 0;
         }
 
-        nav a:hover {
+        nav a:hover, .nav-btn-link:hover {
             color: var(--neon-blue);
             text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
         }
@@ -259,7 +266,7 @@
             margin: 0 auto 2.5rem;
         }
 
-        /* iOS Silent Notice Alert */
+        /* iOS Alert */
         .ios-alert {
             background: rgba(245, 158, 11, 0.12);
             border: 1px solid rgba(245, 158, 11, 0.3);
@@ -288,7 +295,6 @@
             position: relative;
         }
 
-        /* Mode Switcher Tabs */
         .mode-selection {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -319,7 +325,6 @@
             box-shadow: 0 4px 18px rgba(56, 189, 248, 0.4);
         }
 
-        /* Speaker Channel Toggle */
         .speaker-selector {
             display: flex;
             justify-content: center;
@@ -328,7 +333,7 @@
         }
 
         .speaker-btn {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--border-card);
             color: var(--text-sub);
             padding: 0.45rem 1.2rem;
@@ -346,7 +351,6 @@
             box-shadow: 0 0 12px rgba(0, 229, 255, 0.25);
         }
 
-        /* Oscilloscope Waveform Canvas */
         .visualizer-wrapper {
             width: 100%;
             height: 105px;
@@ -368,7 +372,7 @@
             left: 12px;
             font-size: 0.65rem;
             letter-spacing: 0.08em;
-            color: rgba(255, 255, 255, 0.25);
+            color: rgba(255, 255, 255, 0.35);
             font-weight: 700;
         }
 
@@ -378,7 +382,6 @@
             display: block;
         }
 
-        /* Pulse Trigger Button */
         .trigger-group {
             position: relative;
             width: 160px;
@@ -434,7 +437,6 @@
             transform: scale(0.98);
         }
 
-        /* Progress Bar */
         .progress-bar-wrap {
             width: 100%;
             height: 8px;
@@ -452,7 +454,6 @@
             transition: width 0.3s linear;
         }
 
-        /* Status Strip */
         .status-strip {
             display: flex;
             align-items: center;
@@ -482,7 +483,6 @@
             box-shadow: 0 0 12px var(--neon-emerald);
         }
 
-        /* Quick Action Checklist */
         .instruction-banner {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -513,8 +513,8 @@
             max-width: 780px;
         }
 
-        .diag-tester h3 {
-            font-size: 1.4rem;
+        .diag-tester h2 {
+            font-size: 1.6rem;
             margin-bottom: 0.5rem;
             color: #fff;
         }
@@ -535,8 +535,8 @@
             display: flex;
             justify-content: space-between;
             color: var(--text-dim);
-            font-size: 0.8rem;
-            margin-top: 4px;
+            font-size: 0.85rem;
+            margin-top: 6px;
         }
 
         .diag-btn-row {
@@ -549,7 +549,7 @@
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid var(--border-card);
             color: #fff;
-            padding: 0.6rem 1.4rem;
+            padding: 0.65rem 1.5rem;
             border-radius: 12px;
             font-size: 0.9rem;
             font-weight: 600;
@@ -631,10 +631,10 @@
             padding: 1.5rem;
         }
 
-        .guide-card h4 {
+        .guide-card h3 {
             color: #ffffff;
             margin-bottom: 0.6rem;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             display: flex;
             align-items: center;
             gap: 6px;
@@ -643,7 +643,7 @@
         .guide-card ul {
             padding-left: 1.2rem;
             color: var(--text-sub);
-            font-size: 0.88rem;
+            font-size: 0.9rem;
         }
 
         .guide-card li {
@@ -683,11 +683,11 @@
         }
 
         .badge-fail {
-            color: #ef4444;
+            color: #f87171;
             font-weight: 600;
         }
 
-        /* Do NOT Do Section (Red Warning Box) */
+        /* Red Warning Box */
         .warning-box {
             background: rgba(239, 68, 68, 0.08);
             border: 1px solid rgba(239, 68, 68, 0.25);
@@ -697,7 +697,7 @@
         }
 
         .warning-box h3 {
-            color: #f87171;
+            color: #fca5a5;
             font-size: 1.25rem;
             margin-bottom: 0.8rem;
         }
@@ -843,14 +843,11 @@
             flex-wrap: wrap;
         }
 
-        .footer-nav a {
+        .footer-nav .nav-btn-link {
             color: var(--text-main);
-            text-decoration: none;
-            cursor: pointer;
-            transition: color 0.2s ease;
         }
 
-        .footer-nav a:hover {
+        .footer-nav .nav-btn-link:hover {
             color: var(--neon-blue);
         }
 
@@ -864,8 +861,10 @@
             header {
                 padding: 1rem;
             }
-            nav a {
-                margin-left: 0.8rem;
+            nav {
+                gap: 0.8rem;
+            }
+            nav a, .nav-btn-link {
                 font-size: 0.85rem;
             }
         }
@@ -875,16 +874,16 @@
 
     <!-- Header Navigation -->
     <header>
-        <a href="https://fix-my-speaker-tool.github.io/" class="brand-logo">
+        <a href="https://fix-my-speaker-tool.github.io/" class="brand-logo" aria-label="Fix My Speaker Home">
             <div class="brand-icon">🔊</div> FixMySpeaker
         </a>
-        <nav>
+        <nav aria-label="Site Navigation">
             <a href="#how-it-works">How It Works</a>
             <a href="#guides">Devices</a>
             <a href="#diagnostics">Diagnostics</a>
             <a href="#faq">FAQ</a>
-            <a onclick="showModal('aboutModal')">About</a>
-            <a onclick="showModal('contactModal')">Contact</a>
+            <button type="button" class="nav-btn-link" onclick="showModal('aboutModal')">About</button>
+            <button type="button" class="nav-btn-link" onclick="showModal('contactModal')">Contact</button>
         </nav>
     </header>
 
@@ -896,22 +895,22 @@
             <p class="hero-lead">Muffled audio after water submersion or pocket lint buildup? Deploy acoustic pressure oscillations to eject liquid droplets and shake dirt particles free. 100% free, browser-native & safe.</p>
 
             <!-- iOS Silent Mode Warning -->
-            <div class="ios-alert">
-                <span>⚠️</span>
+            <div class="ios-alert" role="alert">
+                <span aria-hidden="true">⚠️</span>
                 <span><strong>iPhone / iPad Notice:</strong> Ensure your physical side <strong>Mute Switch is turned OFF</strong> and Control Center volume is at 100% before starting.</span>
             </div>
 
             <!-- Interactive Master Tool Console -->
             <div class="tool-console" id="acousticConsole">
                 <!-- Modes -->
-                <div class="mode-selection">
-                    <button class="mode-btn active" id="modeWater" onclick="setAcousticMode('water')">💧 Water Eject (165Hz)</button>
-                    <button class="mode-btn" id="modeDust" onclick="setAcousticMode('dust')">💨 Dust Sweep (Sawtooth)</button>
-                    <button class="mode-btn" id="modeVibe" onclick="setAcousticMode('vibe')">📳 Haptic Deep Bass</button>
+                <div class="mode-selection" role="tablist" aria-label="Acoustic Cleaning Modes">
+                    <button class="mode-btn active" id="modeWater" role="tab" aria-selected="true" onclick="setAcousticMode('water')">💧 Water Eject (165Hz)</button>
+                    <button class="mode-btn" id="modeDust" role="tab" aria-selected="false" onclick="setAcousticMode('dust')">💨 Dust Sweep (Sawtooth)</button>
+                    <button class="mode-btn" id="modeVibe" role="tab" aria-selected="false" onclick="setAcousticMode('vibe')">📳 Haptic Deep Bass</button>
                 </div>
 
                 <!-- Stereo Balance Selector -->
-                <div class="speaker-selector">
+                <div class="speaker-selector" role="group" aria-label="Speaker Stereo Channel Selector">
                     <button class="speaker-btn active" id="spkBoth" onclick="setSpeakerChannel('both')">Stereo (Both)</button>
                     <button class="speaker-btn" id="spkLeft" onclick="setSpeakerChannel('left')">Left Channel</button>
                     <button class="speaker-btn" id="spkRight" onclick="setSpeakerChannel('right')">Right Channel</button>
@@ -919,7 +918,7 @@
 
                 <!-- Real-Time Waveform Visualizer -->
                 <div class="visualizer-wrapper">
-                    <canvas id="audioVisualizer"></canvas>
+                    <canvas id="audioVisualizer" aria-label="Sound Waveform Visualization"></canvas>
                 </div>
 
                 <!-- Main Action Trigger Button -->
@@ -932,7 +931,7 @@
                 </div>
 
                 <!-- Progress Bar -->
-                <div class="progress-bar-wrap">
+                <div class="progress-bar-wrap" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progressWrap">
                     <div class="progress-bar-fill" id="cleanProgress"></div>
                 </div>
 
@@ -963,17 +962,21 @@
             </div>
         </section>
 
-        <!-- Interactive Diagnostic Test Section -->
+        <!-- Interactive Diagnostic Test Section (Level H2 for Sequential Descending Order) -->
         <section class="diag-tester" id="diagnostics">
-            <h3>🔬 Post-Cleaning Audio Response Diagnostic</h3>
+            <h2>🔬 Post-Cleaning Audio Response Diagnostic</h2>
             <p style="color: var(--text-sub); font-size: 0.95rem;">After running the ejection cycle, test your smartphone transducers across different audible pitches to verify that raspiness, buzzing, and muffling have cleared.</p>
             
             <div class="slider-control">
-                <label style="display:flex; justify-content:space-between; font-size: 0.9rem; font-weight:600;">
+                <label for="freqSlider" style="display:flex; justify-content:space-between; font-size: 0.9rem; font-weight:600;">
                     <span>Tone Generator Frequency:</span>
                     <span id="freqDisplay" style="color: var(--neon-blue); font-weight: 700;">440 Hz</span>
                 </label>
-                <input type="range" id="freqSlider" min="100" max="8000" step="20" value="440" oninput="updateDiagnosticFreq(this.value)">
+                <!-- Explicit Form Label & ARIA attributes -->
+                <input type="range" id="freqSlider" name="freqSlider" min="100" max="8000" step="20" value="440" 
+                       aria-label="Diagnostic Tone Generator Frequency" 
+                       aria-valuemin="100" aria-valuemax="8000" aria-valuenow="440"
+                       oninput="updateDiagnosticFreq(this.value)">
                 <div class="slider-labels">
                     <span>100Hz (Bass)</span>
                     <span>1000Hz (Mid/Vocal)</span>
@@ -1014,12 +1017,12 @@
             </div>
         </section>
 
-        <!-- Device Specific Guides -->
+        <!-- Device Specific Guides (Fixed H3 Headings) -->
         <section class="article-section" id="guides">
             <h2>Device Specific Step-by-Step Instructions</h2>
             <div class="device-guide-grid">
                 <div class="guide-card">
-                    <h4>🍏 iPhone & iPad</h4>
+                    <h3>🍏 iPhone & iPad</h3>
                     <ul>
                         <li>Switch the physical mute ring switch to <strong>Ring Mode</strong>.</li>
                         <li>Unplug lightning / USB-C charging cables.</li>
@@ -1028,7 +1031,7 @@
                     </ul>
                 </div>
                 <div class="guide-card">
-                    <h4>🤖 Android (Galaxy, Pixel)</h4>
+                    <h3>🤖 Android (Galaxy, Pixel)</h3>
                     <ul>
                         <li>Set Media volume slider to 100% in Settings.</li>
                         <li>Turn off Dolby Atmos voice leveling temporarily.</li>
@@ -1037,7 +1040,7 @@
                     </ul>
                 </div>
                 <div class="guide-card">
-                    <h4>⌚ Smartwatches</h4>
+                    <h3>⌚ Smartwatches</h3>
                     <ul>
                         <li>Remove watch band and rest device sideways on a dry cloth.</li>
                         <li>Trigger the tool from your paired phone or watch browser.</li>
@@ -1045,7 +1048,7 @@
                     </ul>
                 </div>
                 <div class="guide-card">
-                    <h4>🎧 Wireless Earbuds</h4>
+                    <h3>🎧 Wireless Earbuds</h3>
                     <ul>
                         <li>Remove silicone tips (AirPods Pro / Galaxy Buds).</li>
                         <li>Point black mesh grille face-down onto paper towel.</li>
@@ -1055,7 +1058,7 @@
             </div>
         </section>
 
-        <!-- What NEVER To Do -->
+        <!-- Critical Warnings -->
         <section class="article-section">
             <div class="warning-box">
                 <h3>🚫 Critical Warnings: What NEVER to Do to a Wet Speaker</h3>
@@ -1123,7 +1126,7 @@
             <div class="faq-card">
                 <button class="faq-header" onclick="toggleFaq(this)">
                     How does acoustic sound actually eject water droplets?
-                    <span>+</span>
+                    <span aria-hidden="true">+</span>
                 </button>
                 <div class="faq-body">
                     Sound consists of kinetic air pressure pulses. Playing calibrated 165Hz waveforms moves your phone speaker cone rapidly back and forth. This mechanical vibration generates repeated air bursts that break capillary surface tension, expelling trapped liquid drops out through the exterior speaker grille.
@@ -1133,7 +1136,7 @@
             <div class="faq-card">
                 <button class="faq-header" onclick="toggleFaq(this)">
                     Is playing 165Hz at 100% volume safe for phone transducers?
-                    <span>+</span>
+                    <span aria-hidden="true">+</span>
                 </button>
                 <div class="faq-body">
                     Yes, it is completely safe. Modern smartphones (Apple, Samsung, Google, Xiaomi) have hardware-level DSP amplifiers that prevent output overdriving. 165Hz operates well within the safe operational acoustic envelope of modern mobile hardware.
@@ -1143,7 +1146,7 @@
             <div class="faq-card">
                 <button class="faq-header" onclick="toggleFaq(this)">
                     What if my phone fell into salt water, juice, or soapy pool water?
-                    <span>+</span>
+                    <span aria-hidden="true">+</span>
                 </button>
                 <div class="faq-body">
                     Salt, sugars, and chlorine leave destructive residues after evaporating. Lightly dampen a clean cotton cloth with fresh clean water, gently blot the speaker opening to dilute the residue, and immediately run our 165Hz water eject sound for two full cycles.
@@ -1153,7 +1156,7 @@
             <div class="faq-card">
                 <button class="faq-header" onclick="toggleFaq(this)">
                     Why does my earpiece speaker still sound slightly muffled after 3 cycles?
-                    <span>+</span>
+                    <span aria-hidden="true">+</span>
                 </button>
                 <div class="faq-body">
                     If liquid was deeply absorbed into acoustic baffling, residual microscopic condensation may linger. Prop your phone vertically against a wall in a dry room with circulating air for 1 to 2 hours, then test again using our Diagnostic Tone Generator.
@@ -1164,20 +1167,20 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-nav">
-            <a onclick="showModal('aboutModal')">About Us</a>
-            <a onclick="showModal('privacyModal')">Privacy Policy</a>
-            <a onclick="showModal('termsModal')">Terms of Service</a>
-            <a onclick="showModal('contactModal')">Contact Support</a>
+        <div class="footer-nav" aria-label="Footer Utility Links">
+            <button type="button" class="nav-btn-link" onclick="showModal('aboutModal')">About Us</button>
+            <button type="button" class="nav-btn-link" onclick="showModal('privacyModal')">Privacy Policy</button>
+            <button type="button" class="nav-btn-link" onclick="showModal('termsModal')">Terms of Service</button>
+            <button type="button" class="nav-btn-link" onclick="showModal('contactModal')">Contact Support</button>
         </div>
         <p>&copy; 2026 Fix My Speaker Lab (fix-my-speaker-tool.github.io). All rights reserved.</p>
-        <p style="margin-top: 8px; font-size: 0.8rem; color: #475569;">Disclaimer: This free acoustic web utility is independent and not affiliated with Apple Inc., Samsung Electronics, or Google LLC.</p>
+        <p style="margin-top: 10px; font-size: 0.85rem; color: #94a3b8;">Disclaimer: This free acoustic web utility is independent and not affiliated with Apple Inc., Samsung Electronics, or Google LLC.</p>
     </footer>
 
     <!-- MODAL: About Us -->
-    <div class="modal-screen" id="aboutModal" onclick="closeOnBackdrop(event, 'aboutModal')">
+    <div class="modal-screen" id="aboutModal" onclick="closeOnBackdrop(event, 'aboutModal')" role="dialog" aria-modal="true" aria-label="About Us">
         <div class="modal-content">
-            <button class="modal-close-btn" onclick="hideModal('aboutModal')">&times;</button>
+            <button class="modal-close-btn" onclick="hideModal('aboutModal')" aria-label="Close modal">&times;</button>
             <h2>About Us</h2>
             <p>Welcome to <strong>Fix My Speaker Lab</strong> (<code>fix-my-speaker-tool.github.io</code>). We provide an accessible, scientific browser-based solution to common audio hardware mishaps.</p>
             <h3>Our Acoustic Philosophy</h3>
@@ -1188,9 +1191,9 @@
     </div>
 
     <!-- MODAL: Privacy Policy -->
-    <div class="modal-screen" id="privacyModal" onclick="closeOnBackdrop(event, 'privacyModal')">
+    <div class="modal-screen" id="privacyModal" onclick="closeOnBackdrop(event, 'privacyModal')" role="dialog" aria-modal="true" aria-label="Privacy Policy">
         <div class="modal-content">
-            <button class="modal-close-btn" onclick="hideModal('privacyModal')">&times;</button>
+            <button class="modal-close-btn" onclick="hideModal('privacyModal')" aria-label="Close modal">&times;</button>
             <h2>Privacy Policy</h2>
             <p><em>Last updated: 2026</em></p>
             <p>Your privacy is paramount. At <strong>Fix My Speaker Lab</strong>, we practice zero-data tracking.</p>
@@ -1204,9 +1207,9 @@
     </div>
 
     <!-- MODAL: Terms of Service -->
-    <div class="modal-screen" id="termsModal" onclick="closeOnBackdrop(event, 'termsModal')">
+    <div class="modal-screen" id="termsModal" onclick="closeOnBackdrop(event, 'termsModal')" role="dialog" aria-modal="true" aria-label="Terms of Service">
         <div class="modal-content">
-            <button class="modal-close-btn" onclick="hideModal('termsModal')">&times;</button>
+            <button class="modal-close-btn" onclick="hideModal('termsModal')" aria-label="Close modal">&times;</button>
             <h2>Terms of Service</h2>
             <p>By using Fix My Speaker Lab, you acknowledge the following:</p>
             <h3>Safe Usage & Warranty</h3>
@@ -1217,9 +1220,9 @@
     </div>
 
     <!-- MODAL: Contact Us -->
-    <div class="modal-screen" id="contactModal" onclick="closeOnBackdrop(event, 'contactModal')">
+    <div class="modal-screen" id="contactModal" onclick="closeOnBackdrop(event, 'contactModal')" role="dialog" aria-modal="true" aria-label="Contact Us">
         <div class="modal-content">
-            <button class="modal-close-btn" onclick="hideModal('contactModal')">&times;</button>
+            <button class="modal-close-btn" onclick="hideModal('contactModal')" aria-label="Close modal">&times;</button>
             <h2>Contact Us</h2>
             <p>Have inquiries, technical feedback, or suggestions for our acoustic tools? Feel free to reach out directly:</p>
             
@@ -1234,7 +1237,7 @@
         </div>
     </div>
 
-    <!-- Web Audio & Oscilloscope Spectrum Script -->
+    <!-- Optimized Web Audio & Canvas Spectrum Script -->
     <script>
         let audioCtx = null;
         let oscillator = null;
@@ -1254,16 +1257,21 @@
         let diagGain = null;
         let isDiagRunning = false;
 
-        // Setup Visualizer Canvas
+        // Setup Visualizer Canvas (Mitigating Forced Reflow)
         const canvas = document.getElementById('audioVisualizer');
         const ctx = canvas.getContext('2d');
 
         function resizeCanvas() {
-            canvas.width = canvas.parentElement.clientWidth;
-            canvas.height = canvas.parentElement.clientHeight;
+            requestAnimationFrame(() => {
+                const parent = canvas.parentElement;
+                if (parent) {
+                    canvas.width = parent.clientWidth || 600;
+                    canvas.height = parent.clientHeight || 105;
+                }
+            });
         }
         window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+        window.addEventListener('DOMContentLoaded', resizeCanvas);
 
         function drawVisualizer() {
             if (!analyser || !isRunning) {
@@ -1282,11 +1290,9 @@
             analyser.getByteTimeDomainData(dataArr);
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // Draw glowing oscilloscope wave
             ctx.lineWidth = 3;
             ctx.strokeStyle = '#00e5ff';
-            ctx.shadowBlur = 10;
+            ctx.shadowBlur = 8;
             ctx.shadowColor = '#00e5ff';
             ctx.beginPath();
 
@@ -1304,10 +1310,9 @@
 
             ctx.lineTo(canvas.width, canvas.height / 2);
             ctx.stroke();
-            ctx.shadowBlur = 0; // reset
+            ctx.shadowBlur = 0;
             animFrameId = requestAnimationFrame(drawVisualizer);
         }
-        drawVisualizer();
 
         function initAudio() {
             if (!audioCtx) {
@@ -1329,6 +1334,10 @@
             document.getElementById('modeWater').classList.toggle('active', mode === 'water');
             document.getElementById('modeDust').classList.toggle('active', mode === 'dust');
             document.getElementById('modeVibe').classList.toggle('active', mode === 'vibe');
+
+            document.getElementById('modeWater').setAttribute('aria-selected', mode === 'water');
+            document.getElementById('modeDust').setAttribute('aria-selected', mode === 'dust');
+            document.getElementById('modeVibe').setAttribute('aria-selected', mode === 'vibe');
         }
 
         function setSpeakerChannel(channel) {
@@ -1349,9 +1358,7 @@
         }
 
         function startAudioCycle() {
-            // Stop diagnostic test if running
             if (isDiagRunning) toggleDiagnosticTone();
-
             initAudio();
 
             isRunning = true;
@@ -1361,7 +1368,6 @@
             oscillator = audioCtx.createOscillator();
             gainNode = audioCtx.createGain();
 
-            // Stereo Panner routing
             if (audioCtx.createStereoPanner) {
                 pannerNode = audioCtx.createStereoPanner();
                 const panVal = channelSetting === 'left' ? -1 : channelSetting === 'right' ? 1 : 0;
@@ -1386,15 +1392,16 @@
             oscillator.start();
             drawVisualizer();
 
-            // 60-Second Countdown & Progress Bar
             let remaining = cycleDuration;
             const progressFill = document.getElementById('cleanProgress');
+            const progressWrap = document.getElementById('progressWrap');
             progressFill.style.width = '0%';
 
             countdownTimer = setInterval(() => {
                 remaining--;
                 const percent = Math.round(((cycleDuration - remaining) / cycleDuration) * 100);
                 progressFill.style.width = percent + '%';
+                progressWrap.setAttribute('aria-valuenow', percent);
                 document.getElementById('countdownTimer').textContent = remaining + 's';
 
                 if (remaining <= 0) {
@@ -1414,7 +1421,6 @@
                 if (!isRunning) return;
                 const now = audioCtx.currentTime;
                 gainNode.gain.cancelScheduledValues(now);
-                // Sharp acoustic burst
                 gainNode.gain.linearRampToValueAtTime(pulseState ? 1.0 : 0.05, now + 0.03);
                 pulseState = !pulseState;
             }, 150);
@@ -1441,7 +1447,6 @@
             oscillator.frequency.setValueAtTime(55, audioCtx.currentTime);
             gainNode.gain.setValueAtTime(1.0, audioCtx.currentTime);
 
-            // Hardware Haptic Pattern for Supported Android Devices
             if (navigator.vibrate) {
                 navigator.vibrate([250, 100, 250, 100, 250]);
                 pulseTimer = setInterval(() => {
@@ -1471,9 +1476,9 @@
             drawVisualizer();
         }
 
-        // Diagnostic Tone Generator Logic
         function updateDiagnosticFreq(val) {
             document.getElementById('freqDisplay').textContent = val + ' Hz';
+            document.getElementById('freqSlider').setAttribute('aria-valuenow', val);
             if (diagOsc && isDiagRunning) {
                 diagOsc.frequency.setValueAtTime(val, audioCtx.currentTime);
             }
@@ -1512,7 +1517,6 @@
             }
         }
 
-        // Modals Management
         function showModal(id) {
             document.getElementById(id).style.display = 'flex';
         }
@@ -1525,7 +1529,6 @@
             if (e.target.id === id) hideModal(id);
         }
 
-        // FAQ Toggle
         function toggleFaq(btn) {
             const card = btn.parentElement;
             card.classList.toggle('open');
