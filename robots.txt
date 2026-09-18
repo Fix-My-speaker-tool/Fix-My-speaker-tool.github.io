@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Directives
+Sitemap: https://fix-my-speaker-tool.github.io/sitemap.xml
